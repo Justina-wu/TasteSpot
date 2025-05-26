@@ -1,5 +1,6 @@
 package com.hmdp.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
@@ -180,7 +181,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
         // 2. 判断是否命中
         if (StrUtil.isNotBlank(shopJson)) {
             // 3. 存在，直接返回
-            Shop shop = JSONUtil.toBean(shopJson, Shop.class);
+            Shop shop = BeanUtil.toBean(shopJson, Shop.class);
             return shop;
         }
         // 判断命中的是否是空值
